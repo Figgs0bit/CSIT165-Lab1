@@ -1,6 +1,6 @@
 ---
-title: "CSIT165_Lab1"
-author: "SAF"
+title: "Lab_1"
+author: "Sal Figueroa"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -9,22 +9,72 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# ***Part I:*** 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+**The French Dispatch**
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r ClassTable, echo=FALSE}
+movie<-c("**French Dispatch**"," "," "," "," "," "," "," "," ")
+write<-c("Wes Anderson","Roman Coppola","Hugo Guinness","Jason Schwartzman"," "," "," "," "," ")
+produce<-c("Wes Anderson","Steven Rales","Jeremy Dawson"," "," "," "," "," "," ")
+actors<-c("Benicio Del Toro","Adrien Brody","Timothée Chalamet","Jeffrey Wright","Owen Wilson","Bill Murray","Henry Winkler","Steve Park","Léa Seydoux")
 
-```{r cars}
-summary(cars)
+PalomarClass<-data.frame(movie, write, produce, actors)
+knitr::kable(PalomarClass, col.name=c("Title", "Writers", "Producers", "Starring"), align=c("l", "c", "c"))  
 ```
 
-## Including Plots
+The French Dispatch nears its inevitable closure as the seasoned editor-in-chief, **Arthur Howitzer Jr**, gathers the magazine's top expatriate journalists for one last issue. The story is set in the fictional town of ***Ennui-sur-Blasé***. The Three stories or *vignettes* revolve around troubled artistic geniuses, stoic prison guards, flamboyant critics, passionate idealists, conflicted reporters, and the police. <left>
 
-You can also embed plots, for example:
+![](X:/OneDrive/CSIT165_RProgramming/MOD 2 - Lab1/CSIT165-Lab1/TheFrenchDispatch.png){width="32%"} </left>
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+Link: [https://www.imdb.com](https://www.imdb.com/title/tt8847712/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_the%2520french%2520dis)
+
+# ***Part II:*** 
+#
+With code and without output
+
+```{r, fig.keep = 'none', fig.height=6}
+# In R, hashtags are used to make comments without being compiled. You will 
+# learn things like this very soon!
+
+# Create data
+data = data.frame(
+  x=seq(1:100) + 0.1*seq(1:100)*sample(c(1:10) , 100 , replace=T),
+  y=seq(1:100) + 0.2*seq(1:100)*sample(c(1:10) , 100 , replace=T)
+)
+
+# Basic scatterplot
+plot(data$x, data$y,
+     xlim=c(0,250) , ylim=c(0,250), 
+     pch=18, 
+     cex=2, 
+     col="#69b3a2",
+     xlab="value of X", ylab="value of Y",
+     main="A simple scatterplot"
+     )
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Without code and with output
+
+```{r, echo=FALSE, fig.height=5}
+# In R, hashtags are used to make comments without being compiled. You will 
+# learn things like this very soon!
+
+# Create data
+data = data.frame(
+  x=seq(1:100) + 0.1*seq(1:100)*sample(c(1:10) , 100 , replace=T),
+  y=seq(1:100) + 0.2*seq(1:100)*sample(c(1:10) , 100 , replace=T)
+)
+
+# Basic scatterplot
+
+plot(data$x, data$y,
+     xlim=c(0,250) , ylim=c(0,250), 
+     pch=18, 
+     cex=2, 
+     col="#69b3a2",
+     xlab="value of X", ylab="value of Y",
+     main="A simple scatterplot"
+     )
+```
